@@ -86,6 +86,30 @@
   margin-bottom: 12px;
   margin-top: 20px;
 }
+span {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.4px;
+  height: 16px;
+  padding-left: 22px;
+  padding-top: 5px;
+}
+
+.formError span, .formError label, span{
+    color: red;
+}
+
+.formError input[type="text"],
+input[type="password"] {
+  
+    border-color: red;
+    color: red;
+}
+
+.formError input[type="text"]::placeholder,.formError input[type="password"]::placeholder {
+  color: #aaa;
+}
 
 input[type="text"],
 input[type="password"] {
