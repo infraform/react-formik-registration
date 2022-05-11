@@ -50,7 +50,7 @@ function FormSide({ isNight, change }) {
           validationSchema={formSchema}
         >
           {
-            ({values, handleChange, handleSubmit,errors}) => (
+            ({values, handleChange, handleSubmit,errors, touched}) => (
               <form className="form" >
             <div className="name-area">
               <div >
@@ -88,7 +88,7 @@ function FormSide({ isNight, change }) {
                 value={values.email}
                 onChange={handleChange}
               />
-              <span>{errors.email}</span>
+              <span>{touched.email && errors.email}</span>
             </div>
 
             <div className={clsx('', {'formError': !!errors.userName})}>
@@ -100,7 +100,7 @@ function FormSide({ isNight, change }) {
                 value={values.userName}
                 onChange={handleChange}
               />
-              <span>{errors.userName}</span>
+              <span>{touched.userName && errors.userName}</span>
             </div>
 
             <div className={clsx('', {'formError': !!errors.password})}>
@@ -112,7 +112,7 @@ function FormSide({ isNight, change }) {
                 value={values.password}
                 onChange={handleChange}
               />
-              <span>{errors.password}</span>
+              <span>{touched.password && errors.password}</span>
             </div>
 
             <div className={clsx('', {'formError': !!errors.passwordCheck})}>
@@ -124,14 +124,14 @@ function FormSide({ isNight, change }) {
                 value={values.passwordCheck}
                 onChange={handleChange}
               />
-              <span>{errors.passwordCheck}</span>
+              <span>{touched.passwordCheck && errors.passwordCheck}</span>
             </div>
 
             <div className="checkbox-area" >
               <div><input type="checkbox" name="checkbox" id="checkbox" value={values.checkbox} onChange={handleChange}   />
               <label className="contract" htmlFor="checkbox">Sözleşmeyi kabul ediyorum</label></div>
               <div>
-                <span>{errors.checkbox}</span>
+                <span>{touched.checkbox && errors.checkbox}</span>
               </div>
               
             </div>
