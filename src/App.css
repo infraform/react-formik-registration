@@ -101,7 +101,7 @@ span {
 }
 
 .formError input[type="text"],
-input[type="password"] {
+.formError input[type="password"] {
   
     border-color: red;
     color: red;

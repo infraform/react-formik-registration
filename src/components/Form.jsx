@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Formik } from "formik";
-import clsx from "clsx";
+// import clsx from "clsx";
 import { toast } from 'react-toastify';
 import Moon from "../icons/Moon"; // ay componenti
 import Sun from "../icons/Sun"; // gunes componenti
@@ -79,7 +79,7 @@ function FormSide({ isNight, change }) {
               </div>
             </div>
 
-            <div className={clsx('', {'formError': !!errors.email})}>
+            <div className={errors.email && touched.email && "formError"}>
               <label className="required title" style={{ color: isNight && "#FEFEFE" }}>E-POSTA</label>
               <input
                 type="text"
@@ -91,7 +91,7 @@ function FormSide({ isNight, change }) {
               <span>{touched.email && errors.email}</span>
             </div>
 
-            <div className={clsx('', {'formError': !!errors.userName})}>
+            <div className={errors.userName && touched.userName && "formError"}>
               <label className="required title" style={{ color: isNight && "#FEFEFE" }}>KULLANICI ADI</label>
               <input
                 type="text"
@@ -103,7 +103,7 @@ function FormSide({ isNight, change }) {
               <span>{touched.userName && errors.userName}</span>
             </div>
 
-            <div className={clsx('', {'formError': !!errors.password})}>
+            <div className={errors.password && touched.password && "formError"}>
               <label className="required title" style={{ color: isNight && "#FEFEFE" }}>ŞİFRE</label>
               <input
                 type="password"
@@ -115,7 +115,7 @@ function FormSide({ isNight, change }) {
               <span>{touched.password && errors.password}</span>
             </div>
 
-            <div className={clsx('', {'formError': !!errors.passwordCheck})}>
+            <div className={errors.passwordCheck && touched.passwordCheck && "formError"}>
               <label className="required title" style={{ color: isNight && "#FEFEFE" }}>ŞİFRENİ TEKRAR GİR</label>
               <input
                 type="password"
