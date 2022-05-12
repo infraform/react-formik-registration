@@ -1,6 +1,6 @@
 import React from "react";
 
-const LoadingSvg = ({size}) => {
+const LoadingSvg = ({ size }) => {
   return (
     <svg
       width={size || '200'}
