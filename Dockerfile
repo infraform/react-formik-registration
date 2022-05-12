@@ -6,8 +6,6 @@ COPY package*.json ./
 
 # COPY package-lock.json ./
 
-COPY lock.json ./
-
 RUN yarn install
 
 COPY . ./
