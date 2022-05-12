@@ -1,9 +1,9 @@
 import React from "react";
 
-function Sun({change}) {
-    const handleClick = () => {
-        change(false);
-    }
+function Sun({ change }) {
+  const handleClick = () => {
+    change(false);
+  }
   return (
     <div onClick={handleClick}>
       <svg
