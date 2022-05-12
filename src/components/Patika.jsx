@@ -231,8 +231,7 @@ function Patika(props) {
           </filter>
         </defs>
       </svg>
-    </div>
-      
+    </div>      
   );
 }
 
