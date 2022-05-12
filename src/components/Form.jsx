@@ -9,7 +9,7 @@ import LoadingSvg from "../constants/loading"; // loading gorseli icin component
 
 
 function FormSide({ isNight, change }) {
-  
+
   const [loading, setLoading] = useState(false);
   const [isAuth, setIsAuth] = useState(false); // login olup olmadıgını kontrol ediyor
   const [username, setUsername] = useState(''); // hosgeldiniz mesaji icin
@@ -21,9 +21,9 @@ function FormSide({ isNight, change }) {
       setIsAuth(true);
       toast.success('Başarılı bir şekilde kayıt oldunuz', 2000);
     }, 3000);
-    setUsername(auth.userName); 
+    setUsername(auth.userName);
   }
-  
+
 
   return (
     <div className={isNight ? "form-2" : "form-1"}>
@@ -38,119 +38,117 @@ function FormSide({ isNight, change }) {
           className="header-border"
           style={{ backgroundColor: isNight && "#FFBF5E" }}
         ></p>
-        
+
         {
-          isAuth ? 
-          <div style={{ color: isNight && "#FEFEFE" }}>Hoşgeldin {username}</div>
-          :<Formik
-          initialValues={{firstName:'', lastName:'',email: "", userName:'', password: "", passwordCheck: "",checkbox: false}}
-          onSubmit = {auth => {
-            setServer(auth)
-          }}
-          validationSchema={formSchema}
-        >
-          {
-            ({values, handleChange, handleSubmit,errors, touched}) => (
-              <form className="form" >
-            <div className="name-area">
-              <div >
-                <label className="title" style={{ color: isNight && "#FEFEFE" }}>İSİM</label>
-                <input 
-                type="text" 
-                name="firstName" 
-                placeholder="İsmini gir"
-                value={values.firstName}
-                onChange={handleChange}
-                />
-                
-                <span></span>
-              </div>
-
-              <div>
-                <label className="title" style={{ color: isNight && "#FEFEFE" }}>SOYİSİM</label>
-                <input
-                  type="text"
-                  name="lastName"
-                  placeholder="Soyisimini gir"
-                  value={values.lastName}
-                  onChange={handleChange}
-                />
-                <span></span>
-              </div>
-            </div>
-
-            <div className={errors.email && touched.email && "formError"}>
-              <label className="required title" style={{ color: isNight && "#FEFEFE" }}>E-POSTA</label>
-              <input
-                type="text"
-                name="email"
-                placeholder="E-posta adresini gir"
-                value={values.email}
-                onChange={handleChange}
-              />
-              <span>{touched.email && errors.email}</span>
-            </div>
-
-            <div className={errors.userName && touched.userName && "formError"}>
-              <label className="required title" style={{ color: isNight && "#FEFEFE" }}>KULLANICI ADI</label>
-              <input
-                type="text"
-                name="userName"
-                placeholder="Kullanıcı adını gir"
-                value={values.userName}
-                onChange={handleChange}
-              />
-              <span>{touched.userName && errors.userName}</span>
-            </div>
-
-            <div className={errors.password && touched.password && "formError"}>
-              <label className="required title" style={{ color: isNight && "#FEFEFE" }}>ŞİFRE</label>
-              <input
-                type="password"
-                name="password"
-                placeholder="Şifreni gir"
-                value={values.password}
-                onChange={handleChange}
-              />
-              <span>{touched.password && errors.password}</span>
-            </div>
-
-            <div className={errors.passwordCheck && touched.passwordCheck && "formError"}>
-              <label className="required title" style={{ color: isNight && "#FEFEFE" }}>ŞİFRENİ TEKRAR GİR</label>
-              <input
-                type="password"
-                name="passwordCheck"
-                placeholder="Şifreni doğrula"
-                value={values.passwordCheck}
-                onChange={handleChange}
-              />
-              <span>{touched.passwordCheck && errors.passwordCheck}</span>
-            </div>
-
-            <div className="checkbox-area" >
-              <div><input type="checkbox" name="checkbox" id="checkbox" value={values.checkbox} onChange={handleChange}   />
-              <label className="contract" htmlFor="checkbox">Sözleşmeyi kabul ediyorum</label></div>
-              <div>
-                <span>{touched.checkbox && errors.checkbox}</span>
-              </div>
-              
-            </div>
-
-            <div className="formButton" >
-              <button className="registerButton" type="submit" onClick={handleSubmit} disabled={loading}>
+          isAuth ?
+            <div style={{ color: isNight && "#FEFEFE" }}>Hoşgeldin {username}</div>
+            : <Formik
+              initialValues={{ firstName: '', lastName: '', email: "", userName: '', password: "", passwordCheck: "", checkbox: false }}
+              onSubmit={auth => {
+                setServer(auth)
+              }}
+              validationSchema={formSchema}
+            >
               {
-                        loading ? <LoadingSvg size={50} /> : 'KAYIT OL'
-                      }
+                ({ values, handleChange, handleSubmit, errors, touched }) => (
+                  <form className="form" >
+                    <div className="name-area">
+                      <div >
+                        <label className="title" style={{ color: isNight && "#FEFEFE" }}>İSİM</label>
+                        <input
+                          type="text"
+                          name="firstName"
+                          placeholder="İsmini gir"
+                          value={values.firstName}
+                          onChange={handleChange}
+                        />
+
+                        <span></span>
+                      </div>
+
+                      <div>
+                        <label className="title" style={{ color: isNight && "#FEFEFE" }}>SOYİSİM</label>
+                        <input
+                          type="text"
+                          name="lastName"
+                          placeholder="Soyisimini gir"
+                          value={values.lastName}
+                          onChange={handleChange}
+                        />
+                        <span></span>
+                      </div>
+                    </div>
+
+                    <div className={errors.email && touched.email && "formError"}>
+                      <label className="required title" style={{ color: isNight && "#FEFEFE" }}>E-POSTA</label>
+                      <input
+                        type="text"
+                        name="email"
+                        placeholder="E-posta adresini gir"
+                        value={values.email}
+                        onChange={handleChange}
+                      />
+                      <span>{touched.email && errors.email}</span>
+                    </div>
+
+                    <div className={errors.userName && touched.userName && "formError"}>
+                      <label className="required title" style={{ color: isNight && "#FEFEFE" }}>KULLANICI ADI</label>
+                      <input
+                        type="text"
+                        name="userName"
+                        placeholder="Kullanıcı adını gir"
+                        value={values.userName}
+                        onChange={handleChange}
+                      />
+                      <span>{touched.userName && errors.userName}</span>
+                    </div>
+
+                    <div className={errors.password && touched.password && "formError"}>
+                      <label className="required title" style={{ color: isNight && "#FEFEFE" }}>ŞİFRE</label>
+                      <input
+                        type="password"
+                        name="password"
+                        placeholder="Şifreni gir"
+                        value={values.password}
+                        onChange={handleChange}
+                      />
+                      <span>{touched.password && errors.password}</span>
+                    </div>
+
+                    <div className={errors.passwordCheck && touched.passwordCheck && "formError"}>
+                      <label className="required title" style={{ color: isNight && "#FEFEFE" }}>ŞİFRENİ TEKRAR GİR</label>
+                      <input
+                        type="password"
+                        name="passwordCheck"
+                        placeholder="Şifreni doğrula"
+                        value={values.passwordCheck}
+                        onChange={handleChange}
+                      />
+                      <span>{touched.passwordCheck && errors.passwordCheck}</span>
+                    </div>
+
+                    <div className="checkbox-area" >
+                      <div><input type="checkbox" name="checkbox" id="checkbox" value={values.checkbox} onChange={handleChange} />
+                        <label className="contract" htmlFor="checkbox">Sözleşmeyi kabul ediyorum</label></div>
+                      <div>
+                        <span>{touched.checkbox && errors.checkbox}</span>
+                      </div>
+
+                    </div>
+
+                    <div className="formButton" >
+                      <button className="registerButton" type="submit" onClick={handleSubmit} disabled={loading}>
+                        {
+                          loading ? <LoadingSvg size={50} /> : 'KAYIT OL'
+                        }
                       </button>
-              <span></span>
-            </div>
-          </form>
-            )
-          }
-          
-        </Formik>
+                      <span></span>
+                    </div>
+                  </form>
+                )
+              }
+            </Formik>
         }
-        
       </div>
     </div>
   );
