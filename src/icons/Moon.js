@@ -1,9 +1,9 @@
 import React from "react";
 
-function Moon({change}) {
-    const handleClick = () => {
-        change(true);
-    }
+function Moon({ change }) {
+  const handleClick = () => {
+    change(true);
+  }
   return (
     <div onClick={handleClick}>
       <svg
